@@ -1,0 +1,20 @@
+include:
+  - project: 'be-public/gitlab-ci-template'
+    ref: master
+    file: 'common-legacy.yml'
+  - project: 'be-public/gitlab-ci-template'
+    ref: master
+    file: 'build.yml'
+
+variables:
+  CI_REGISTRY_USER: _json_key
+  CI_REGISTRY: asia.gcr.io
+  CONTAINER_IMAGE: asia.gcr.io/docker-veep/$CI_PROJECT_NAME
+  CHART_REPO_USER: lat2h2q
+  PROJECT_NAME: $CI_PROJECT_NAME
+
+stages:
+  - prepare
+  - build
+  - collected
+  - update_version
