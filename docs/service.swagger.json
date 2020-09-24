@@ -11,9 +11,31 @@
     "application/json"
   ],
   "paths": {
+    "/sum": {
+      "post": {
+        "operationId": "Sum",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbSumResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "BeTest"
+        ]
+      }
+    },
     "/version": {
       "get": {
-        "operationId": "BeTest_Version",
+        "operationId": "Version",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -22,7 +44,7 @@
             }
           },
           "default": {
-            "description": "An unexpected error response.",
+            "description": "An unexpected error response",
             "schema": {
               "$ref": "#/definitions/runtimeError"
             }
@@ -35,6 +57,15 @@
     }
   },
   "definitions": {
+    "pbSumResponse": {
+      "type": "object",
+      "properties": {
+        "sum": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "pbVersionResponse": {
       "type": "object",
       "properties": {

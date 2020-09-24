@@ -117,32 +117,140 @@ func (m *VersionResponse) GetVersion() string {
 	return ""
 }
 
+type SumRequest struct {
+	A                    int32    `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"`
+	B                    int32    `protobuf:"varint,2,opt,name=b,proto3" json:"b,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SumRequest) Reset()         { *m = SumRequest{} }
+func (m *SumRequest) String() string { return proto.CompactTextString(m) }
+func (*SumRequest) ProtoMessage()    {}
+func (*SumRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{2}
+}
+func (m *SumRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SumRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SumRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SumRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SumRequest.Merge(m, src)
+}
+func (m *SumRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *SumRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SumRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SumRequest proto.InternalMessageInfo
+
+func (m *SumRequest) GetA() int32 {
+	if m != nil {
+		return m.A
+	}
+	return 0
+}
+
+func (m *SumRequest) GetB() int32 {
+	if m != nil {
+		return m.B
+	}
+	return 0
+}
+
+type SumResponse struct {
+	Sum                  int32    `protobuf:"varint,1,opt,name=sum,proto3" json:"sum,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SumResponse) Reset()         { *m = SumResponse{} }
+func (m *SumResponse) String() string { return proto.CompactTextString(m) }
+func (*SumResponse) ProtoMessage()    {}
+func (*SumResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{3}
+}
+func (m *SumResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SumResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SumResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SumResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SumResponse.Merge(m, src)
+}
+func (m *SumResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *SumResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SumResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SumResponse proto.InternalMessageInfo
+
+func (m *SumResponse) GetSum() int32 {
+	if m != nil {
+		return m.Sum
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*VersionRequest)(nil), "pb.VersionRequest")
 	proto.RegisterType((*VersionResponse)(nil), "pb.VersionResponse")
+	proto.RegisterType((*SumRequest)(nil), "pb.SumRequest")
+	proto.RegisterType((*SumResponse)(nil), "pb.SumResponse")
 }
 
 func init() { proto.RegisterFile("service.proto", fileDescriptor_a0b84a42fa06f626) }
 
 var fileDescriptor_a0b84a42fa06f626 = []byte{
-	// 262 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x8e, 0x41, 0x4a, 0xc4, 0x30,
-	0x14, 0x86, 0xc9, 0x2c, 0x66, 0x34, 0xa0, 0x96, 0xb8, 0x19, 0x8a, 0x14, 0xe9, 0x4a, 0xd0, 0x34,
-	0xa0, 0xe0, 0x01, 0x06, 0xd7, 0x2e, 0x06, 0x71, 0x9f, 0xd4, 0x67, 0x0c, 0xce, 0xe4, 0xc5, 0x24,
-	0x6d, 0xf7, 0x5e, 0xc1, 0x4b, 0x78, 0x14, 0x97, 0x82, 0x17, 0x90, 0xe2, 0x41, 0x84, 0xb4, 0x0e,
-	0x0e, 0xcc, 0x2a, 0xef, 0xff, 0xf2, 0xbd, 0x9f, 0x47, 0x0f, 0x02, 0xf8, 0xd6, 0xd4, 0x50, 0x39,
-	0x8f, 0x11, 0xd9, 0xc4, 0xa9, 0xfc, 0x44, 0x23, 0xea, 0x15, 0x08, 0xe9, 0x8c, 0x90, 0xd6, 0x62,
-	0x94, 0xd1, 0xa0, 0x0d, 0x83, 0x91, 0x5f, 0xa4, 0xa7, 0xe6, 0x1a, 0x2c, 0x0f, 0x9d, 0xd4, 0x1a,
-	0xbc, 0x40, 0x97, 0x8c, 0x1d, 0x36, 0xd7, 0x26, 0x3e, 0x35, 0xaa, 0xaa, 0x71, 0x2d, 0x34, 0x6a,
-	0x14, 0x09, 0xab, 0xe6, 0x31, 0xa5, 0x14, 0xd2, 0x34, 0xea, 0xd7, 0xff, 0xf4, 0x75, 0x67, 0xe2,
-	0x33, 0x76, 0x42, 0x23, 0x4f, 0x9f, 0xbc, 0x95, 0x2b, 0xf3, 0x20, 0x23, 0xfa, 0x20, 0x36, 0xe3,
-	0xb0, 0x57, 0x66, 0xf4, 0xf0, 0x1e, 0x7c, 0x30, 0x68, 0x97, 0xf0, 0xd2, 0x40, 0x88, 0xe5, 0x39,
-	0x3d, 0xda, 0x90, 0xe0, 0xd0, 0x06, 0x60, 0x73, 0x3a, 0x6b, 0x07, 0x34, 0x27, 0xa7, 0xe4, 0x6c,
-	0x7f, 0xf9, 0x17, 0x2f, 0x6f, 0xe9, 0x74, 0x01, 0x77, 0x10, 0x22, 0xbb, 0xa1, 0xb3, 0x71, 0x8d,
-	0xb1, 0xca, 0xa9, 0x6a, 0xbb, 0x35, 0x3f, 0xde, 0x62, 0x43, 0x6f, 0x99, 0xbd, 0x7e, 0xfd, 0xbc,
-	0x4d, 0x28, 0xdb, 0x13, 0x63, 0xdf, 0x22, 0x7b, 0xef, 0x0b, 0xf2, 0xd1, 0x17, 0xe4, 0xb3, 0x2f,
-	0xc8, 0x77, 0x5f, 0x10, 0x35, 0x4d, 0x77, 0x5e, 0xfd, 0x06, 0x00, 0x00, 0xff, 0xff, 0xd8, 0x0f,
-	0x89, 0x38, 0x6f, 0x01, 0x00, 0x00,
+	// 324 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0xd1, 0x4a, 0xc3, 0x30,
+	0x18, 0x85, 0xc9, 0xa6, 0x9b, 0xc6, 0xb9, 0x95, 0x78, 0x33, 0x8a, 0x54, 0xe9, 0xd5, 0x40, 0xdb,
+	0x80, 0x8a, 0x0f, 0x30, 0x7c, 0x82, 0x4d, 0xbc, 0x4f, 0x66, 0x8c, 0xc1, 0xb5, 0x7f, 0x6d, 0x92,
+	0xed, 0x5e, 0x7c, 0x03, 0x5f, 0xc2, 0x47, 0xf1, 0x52, 0xf0, 0x05, 0xa4, 0xf8, 0x20, 0xd2, 0x34,
+	0x56, 0x07, 0x5e, 0xf5, 0x3f, 0xa7, 0xdf, 0x39, 0x1c, 0x82, 0xf7, 0xb5, 0x28, 0x57, 0x6a, 0x21,
+	0xd2, 0xa2, 0x04, 0x03, 0xa4, 0x53, 0xf0, 0xf0, 0x50, 0x02, 0xc8, 0xa5, 0xa0, 0xac, 0x50, 0x94,
+	0xe5, 0x39, 0x18, 0x66, 0x14, 0xe4, 0xba, 0x21, 0xc2, 0x53, 0xf7, 0x59, 0x24, 0x52, 0xe4, 0x89,
+	0x5e, 0x33, 0x29, 0x45, 0x49, 0xa1, 0x70, 0xc4, 0x3f, 0x74, 0x22, 0x95, 0xb9, 0xb7, 0x3c, 0x5d,
+	0x40, 0x46, 0x25, 0x48, 0xa0, 0xce, 0xe6, 0xf6, 0xce, 0x29, 0x27, 0xdc, 0xe5, 0xf1, 0xcb, 0x3f,
+	0x78, 0xb6, 0x56, 0xe6, 0x01, 0xd6, 0x54, 0x42, 0xe2, 0x7e, 0x26, 0x2b, 0xb6, 0x54, 0xb7, 0xcc,
+	0x40, 0xa9, 0x69, 0x7b, 0x36, 0xb9, 0x38, 0xc0, 0xc3, 0x1b, 0x51, 0x6a, 0x05, 0xf9, 0x4c, 0x3c,
+	0x5a, 0xa1, 0x4d, 0x7c, 0x82, 0x47, 0xad, 0xa3, 0x0b, 0xc8, 0xb5, 0x20, 0x63, 0xdc, 0x5f, 0x35,
+	0xd6, 0x18, 0x1d, 0xa3, 0xc9, 0xee, 0xec, 0x47, 0xc6, 0x13, 0x8c, 0xe7, 0x36, 0xf3, 0x51, 0x32,
+	0xc0, 0x88, 0x39, 0x62, 0x7b, 0x86, 0x58, 0xad, 0xf8, 0xb8, 0xd3, 0x28, 0x1e, 0x1f, 0xe1, 0x3d,
+	0x47, 0xfa, 0xca, 0x00, 0x77, 0xb5, 0xcd, 0x3c, 0x5c, 0x9f, 0x67, 0xcf, 0x08, 0xf7, 0xa6, 0xe2,
+	0xba, 0xee, 0xb9, 0xc2, 0x7d, 0x3f, 0x81, 0x90, 0xb4, 0xe0, 0xe9, 0xe6, 0xc2, 0xf0, 0x60, 0xc3,
+	0x6b, 0x0a, 0xe3, 0xe0, 0xe9, 0xe3, 0xeb, 0xa5, 0x83, 0xc9, 0x0e, 0xf5, 0xdb, 0xc8, 0x05, 0xee,
+	0xce, 0x6d, 0x46, 0x86, 0x35, 0xfd, 0x3b, 0x32, 0x1c, 0xb5, 0xda, 0x27, 0x07, 0x2e, 0xd9, 0x8b,
+	0xb7, 0xa8, 0xb6, 0xd9, 0x34, 0x78, 0xad, 0x22, 0xf4, 0x56, 0x45, 0xe8, 0xbd, 0x8a, 0xd0, 0x67,
+	0x15, 0x21, 0xde, 0x73, 0x2f, 0x75, 0xfe, 0x1d, 0x00, 0x00, 0xff, 0xff, 0xfa, 0x2d, 0x5d, 0xab,
+	0xf1, 0x01, 0x00, 0x00,
 }
 
 func (this *VersionRequest) Equal(that interface{}) bool {
@@ -196,6 +304,63 @@ func (this *VersionResponse) Equal(that interface{}) bool {
 	}
 	return true
 }
+func (this *SumRequest) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*SumRequest)
+	if !ok {
+		that2, ok := that.(SumRequest)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if this.A != that1.A {
+		return false
+	}
+	if this.B != that1.B {
+		return false
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return false
+	}
+	return true
+}
+func (this *SumResponse) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*SumResponse)
+	if !ok {
+		that2, ok := that.(SumResponse)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if this.Sum != that1.Sum {
+		return false
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return false
+	}
+	return true
+}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
@@ -210,6 +375,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type BeTestClient interface {
 	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error)
+	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
 }
 
 type beTestClient struct {
@@ -229,9 +395,19 @@ func (c *beTestClient) Version(ctx context.Context, in *VersionRequest, opts ...
 	return out, nil
 }
 
+func (c *beTestClient) Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error) {
+	out := new(SumResponse)
+	err := c.cc.Invoke(ctx, "/pb.BeTest/Sum", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BeTestServer is the server API for BeTest service.
 type BeTestServer interface {
 	Version(context.Context, *VersionRequest) (*VersionResponse, error)
+	Sum(context.Context, *SumRequest) (*SumResponse, error)
 }
 
 // UnimplementedBeTestServer can be embedded to have forward compatible implementations.
@@ -240,6 +416,9 @@ type UnimplementedBeTestServer struct {
 
 func (*UnimplementedBeTestServer) Version(ctx context.Context, req *VersionRequest) (*VersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
+}
+func (*UnimplementedBeTestServer) Sum(ctx context.Context, req *SumRequest) (*SumResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Sum not implemented")
 }
 
 func RegisterBeTestServer(s *grpc.Server, srv BeTestServer) {
@@ -264,6 +443,24 @@ func _BeTest_Version_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BeTest_Sum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SumRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeTestServer).Sum(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.BeTest/Sum",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeTestServer).Sum(ctx, req.(*SumRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _BeTest_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "pb.BeTest",
 	HandlerType: (*BeTestServer)(nil),
@@ -271,6 +468,10 @@ var _BeTest_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Version",
 			Handler:    _BeTest_Version_Handler,
+		},
+		{
+			MethodName: "Sum",
+			Handler:    _BeTest_Sum_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -338,6 +539,75 @@ func (m *VersionResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *SumRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SumRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SumRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.B != 0 {
+		i = encodeVarintService(dAtA, i, uint64(m.B))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.A != 0 {
+		i = encodeVarintService(dAtA, i, uint64(m.A))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SumResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SumResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SumResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Sum != 0 {
+		i = encodeVarintService(dAtA, i, uint64(m.Sum))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintService(dAtA []byte, offset int, v uint64) int {
 	offset -= sovService(v)
 	base := offset
@@ -370,6 +640,39 @@ func (m *VersionResponse) Size() (n int) {
 	l = len(m.Version)
 	if l > 0 {
 		n += 1 + l + sovService(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SumRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.A != 0 {
+		n += 1 + sovService(uint64(m.A))
+	}
+	if m.B != 0 {
+		n += 1 + sovService(uint64(m.B))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SumResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Sum != 0 {
+		n += 1 + sovService(uint64(m.Sum))
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -498,6 +801,171 @@ func (m *VersionResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.Version = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SumRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SumRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SumRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field A", wireType)
+			}
+			m.A = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.A |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field B", wireType)
+			}
+			m.B = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.B |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SumResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SumResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SumResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Sum", wireType)
+			}
+			m.Sum = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Sum |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
 		default:
 			iNdEx = preIndex
 			skippy, err := skipService(dAtA[iNdEx:])

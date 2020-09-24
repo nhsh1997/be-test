@@ -16,6 +16,10 @@ type service struct {
 	mainStore *stores.MainStore
 }
 
+func (s *service) Sum(ctx context.Context, request *pb.SumRequest) (*pb.SumResponse, error) {
+	panic("implement me")
+}
+
 func New(config *config.Config,
 	mainStore *stores.MainStore) pb.BeTestServer {
 	return &service{

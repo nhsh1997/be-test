@@ -4,9 +4,9 @@ package config
 
 import (
 	"bytes"
+	"git.begroup.team/platform-core/kitchen/l"
 	"strings"
 
-	"git.begroup.team/platform-core/kitchen/l"
 	"github.com/spf13/viper"
 )
 

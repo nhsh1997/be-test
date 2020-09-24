@@ -18,6 +18,12 @@ service BeTest {
             get: "/version",
         };
     }
+
+    rpc Sum(SumRequest) returns (SumResponse) {
+        option (google.api.http) = {
+            post: "/sum",
+        };
+    }
 }
 
 message VersionRequest {
@@ -25,4 +31,13 @@ message VersionRequest {
 
 message VersionResponse {
     string version = 1;
+}
+
+message SumRequest {
+    int32 a = 1;
+    int32 b = 2;
+}
+
+message SumResponse {
+    int32 sum = 1;
 }
